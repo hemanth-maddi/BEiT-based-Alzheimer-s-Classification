@@ -47,18 +47,14 @@ class_weights = [class_weights[i] for i in range(len(class_weights))]
 class_weights = torch.tensor(class_weights, dtype=torch.float)
 
 
-
 # Move to GPU if available
 # if torch.cuda.is_available():
 class_weights = class_weights.to('cuda')
 
 
 from torch import nn
-
 # Load the model
 model = BeitForImageClassification.from_pretrained('microsoft/beit-base-patch16-224')
-
-
 num_classes = len(class_weights) 
 model.classifier = nn.Linear(model.classifier.in_features, num_classes)
 
@@ -72,10 +68,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 model = model.to('cuda')
 
 
-
 num_epochs = 200
-
-
 # Training loop
 for epoch in range(num_epochs):
     for i, (images, labels) in enumerate(train_loader):
@@ -125,17 +118,14 @@ with torch.no_grad():
 all_labels = [label.cpu() for label in all_labels]
 all_predictions = [prediction.cpu() for prediction in all_predictions]
 
+
 # Confusion matrix
 cm = confusion_matrix(all_labels, all_predictions)
 print('Confusion Matrix:')
 print(cm)
-
 from sklearn.metrics import classification_report
-
 # Print the classification report
 print(classification_report(all_labels, all_predictions))
 
 
-
 torch.save(model.state_dict(), 'alzheimer_model.pth')
-
