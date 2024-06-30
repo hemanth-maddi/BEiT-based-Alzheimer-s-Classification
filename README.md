@@ -31,7 +31,7 @@ You can install these libraries using pip:
 pip install torch torchvision transformers sklearn matplotlib
 ```
 
-##Dataset
+#Dataset
 The dataset should be organized in a folder structure compatible with torchvision.datasets.ImageFolder. Place your dataset in a directory and update the path in the script accordingly.
 
 ##Usage
