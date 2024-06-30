@@ -37,15 +37,15 @@ The dataset should be organized in a folder structure compatible with torchvisio
 ## Usage
 Here is a basic outline of how to use the script:
 
-Define Transformations: Resize images and convert them to tensors.
-Load the Dataset: Load your dataset using torchvision.datasets.ImageFolder.
-Split the Dataset: Split the dataset into training, validation, and test sets.
-Create Data Loaders: Create data loaders for batching and shuffling the data.
-Calculate Class Weights: Calculate class weights to handle class imbalance.
-Training Loop: Train the model with forward and backward passes.
-Validation Loop: Evaluate the model on the validation set.
-Testing and Metrics: Test the model on the test set and calculate metrics.
-Save the Model: Save the trained model to a file.
+1. **Define Transformations**: Resize images and convert them to tensors.
+2. **Load the Dataset**: Load your dataset using `torchvision.datasets.ImageFolder`.
+3. **Split the Dataset**: Split the dataset into training, validation, and test sets.
+4. **Create Data Loaders**: Create data loaders for batching and shuffling the data.
+5. **Calculate Class Weights**: Calculate class weights to handle class imbalance.
+6. **Training Loop**: Train the model with forward and backward passes.
+7. **Validation Loop**: Evaluate the model on the validation set.
+8. **Testing and Metrics**: Test the model on the test set and calculate metrics.
+9. **Save the Model**: Save the trained model to a file.
 
 ## Training
 To train the model, run the script. Adjust the hyperparameters such as num_epochs, batch_size, and learning rate as needed.
