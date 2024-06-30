@@ -31,10 +31,10 @@ You can install these libraries using pip:
 pip install torch torchvision transformers sklearn matplotlib
 
 
-Dataset
+##Dataset
 The dataset should be organized in a folder structure compatible with torchvision.datasets.ImageFolder. Place your dataset in a directory and update the path in the script accordingly.
 
-Usage
+##Usage
 Here is a basic outline of how to use the script:
 
 Define Transformations: Resize images and convert them to tensors.
@@ -46,9 +46,9 @@ Training Loop: Train the model with forward and backward passes.
 Validation Loop: Evaluate the model on the validation set.
 Testing and Metrics: Test the model on the test set and calculate metrics.
 Save the Model: Save the trained model to a file.
-Training
+##Training
 To train the model, run the script. Adjust the hyperparameters such as num_epochs, batch_size, and learning rate as needed.
-# Example training loop
+
 for epoch in range(num_epochs):
     for i, (images, labels) in enumerate(train_loader):
         images = images.to('cpu')
@@ -59,7 +59,7 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
     print('Epoch {} completed'.format(epoch + 1))
-Validation
+##Validation
 Evaluate the model on the validation set and print the accuracy:
 
 model.eval()
@@ -74,7 +74,7 @@ with torch.no_grad():
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 print('Validation Accuracy: {} %'.format(100 * correct / total))
-Testing and Metrics
+##Testing and Metrics
 Test the model on the test set, compute the confusion matrix and classification report:
 model.eval()
 all_labels = []
@@ -98,17 +98,17 @@ print(cm)
 
 
 print(classification_report(all_labels, all_predictions))
-Results
+##Results
 Include the key results from your model training, validation, and testing here.
 
-Model Saving
+##Model Saving
 Save the trained model's state dictionary to a file for future use:
 
 torch.save(model.state_dict(), 'alzheimer_model.pth')
-Contributing
+##Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
 
-License
+##License
 This project is licensed under the MIT License.
 
 This `README.md` file provides a comprehensive overview of your project, including installation instructions, usage guidelines, and code snippets for training, validation, and testing the model. You can customize and expand it further as needed.
