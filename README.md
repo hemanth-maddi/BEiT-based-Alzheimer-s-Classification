@@ -99,12 +99,23 @@ print(cm)
 print(classification_report(all_labels, all_predictions))
 ```
 ## Results
-Include the key results from your model training, validation, and testing here.
+              precision    recall  f1-score   support
+
+           0       0.92      0.89      0.91       123
+           1       1.00      0.91      0.95        11
+           2       0.95      0.96      0.96       480
+           3       0.93      0.93      0.93       346
+
+    accuracy                           0.94       960
+   macro avg       0.95      0.92      0.94       960
+weighted avg       0.94      0.94      0.94       960
+
 
 ## Model Saving
 Save the trained model's state dictionary to a file for future use:
-
+```
 torch.save(model.state_dict(), 'alzheimer_model.pth')
+```
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
 
