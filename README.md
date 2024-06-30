@@ -100,8 +100,8 @@ print(classification_report(all_labels, all_predictions))
 ```
 ## Results
 The model achieved the following results on the test set:
-
-              precision    recall  f1-score   support
+```
+                precision    recall  f1-score   support
 
            0       0.92      0.89      0.91       123
            1       1.00      0.91      0.95        11
@@ -109,9 +109,10 @@ The model achieved the following results on the test set:
            3       0.93      0.93      0.93       346
 
     accuracy                           0.94       960
-  macro avg 0.95 0.92 0.94 960
-weighted avg 0.94 0.94 0.94 960
+   macro avg       0.95      0.92      0.94       960
+weighted avg       0.94      0.94      0.94       960
 
+```
 
 
 ## Model Saving
