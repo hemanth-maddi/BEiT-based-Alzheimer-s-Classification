@@ -46,9 +46,10 @@ Training Loop: Train the model with forward and backward passes.
 Validation Loop: Evaluate the model on the validation set.
 Testing and Metrics: Test the model on the test set and calculate metrics.
 Save the Model: Save the trained model to a file.
+
 ## Training
 To train the model, run the script. Adjust the hyperparameters such as num_epochs, batch_size, and learning rate as needed.
-
+```sh
 for epoch in range(num_epochs):
     for i, (images, labels) in enumerate(train_loader):
         images = images.to('cpu')
@@ -59,9 +60,10 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
     print('Epoch {} completed'.format(epoch + 1))
+```
 ## Validation
 Evaluate the model on the validation set and print the accuracy:
-
+```
 model.eval()
 with torch.no_grad():
     correct = 0
@@ -74,8 +76,10 @@ with torch.no_grad():
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 print('Validation Accuracy: {} %'.format(100 * correct / total))
+```
 ## Testing and Metrics
 Test the model on the test set, compute the confusion matrix and classification report:
+```
 model.eval()
 all_labels = []
 all_predictions = []
@@ -87,17 +91,13 @@ with torch.no_grad():
         _, predicted = torch.max(outputs.logits.data, 1)
         all_labels.extend(labels)
         all_predictions.extend(predicted)
-
 all_labels = [label.cpu() for label in all_labels]
 all_predictions = [prediction.cpu() for prediction in all_predictions]
-
-
 cm = confusion_matrix(all_labels, all_predictions)
 print('Confusion Matrix:')
 print(cm)
-
-
 print(classification_report(all_labels, all_predictions))
+```
 ## Results
 Include the key results from your model training, validation, and testing here.
 
